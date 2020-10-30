@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PEImportMapping.API.Models
 {
-    public class ForgeModel
+    public class ImportMappingModel
     {
 
         public string HeaderEventType { get; set; }
@@ -15,5 +15,16 @@ namespace PEImportMapping.API.Models
 
         public string EntentitlementCatelog { get; set; }
          public string TenantRecipe { get; set; }
+    }
+
+
+    public class zourapayloadModel
+    {
+
+        public string Header_Event_Type { get; set; }
+        public string Ultimate_Parent_Account_Name { get; set; }
+        public string Legal_Name { get; set; }
+        public string Account_Name { get; set; }
+
     }
 }

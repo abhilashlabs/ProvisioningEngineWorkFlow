@@ -4,26 +4,45 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
+using PEImportMapping.API.PEImportMapping.Buisness;
 using PEImportMapping.API.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace PEImportMapping.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ImportMappingController : ControllerBase
+    public partial class ImportMappingController : ControllerBase
     {
-         public ForgeModel ForgeModelobj;
+     
+        private readonly ImportMapping _importmapping;
+        private readonly String apiBaseUrl = "https://localhost:44348/api/PECore/";
+        public ImportMappingController(ImportMapping importmapping)
+        {
+            _importmapping = importmapping;
+        }
 
         [HttpPost]
-        public Object ImportFile()
+        public   Object Post([FromBody] zourapayloadModel data)
         {
-            var myJsonString = System.IO.File.ReadAllText("ZouraPayloads/CreateSubscription.json");
-            var myJObject = JObject.Parse(myJsonString);
-            ForgeModelobj = new ForgeModel();
-            return myJObject;
+            var payload = _importmapping.PEImportMapping( data);
+           
+            //using (HttpClient client = new HttpClient())
+            //{
+            //    StringContent content = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json");
+            //    string endpoint = apiBaseUrl;
 
+            //    using (var Response =  client.PostAsync(endpoint, content))
+            //    {
+            //        payload = Response;
+                 
+            //    }
+            //}
+                return payload;
         }
+
 
     }
 }
