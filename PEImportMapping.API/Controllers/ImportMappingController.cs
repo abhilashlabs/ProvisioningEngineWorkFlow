@@ -13,9 +13,9 @@ namespace PEImportMapping.API.Controllers
     [ApiController]
     public class ImportMappingController : ControllerBase
     {
-        public ForgeModel ForgeModelobj;
+         public ForgeModel ForgeModelobj;
 
-       [HttpPost]
+        [HttpPost]
         public Object ImportFile()
         {
             var myJsonString = System.IO.File.ReadAllText("ZouraPayloads/CreateSubscription.json");
