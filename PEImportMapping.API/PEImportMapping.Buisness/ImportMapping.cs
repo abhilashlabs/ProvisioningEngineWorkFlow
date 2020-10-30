@@ -2,21 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using PEImportMapping.API.Models;
 
-
-namespace PEImportMapping.API.Controllers
+namespace PEImportMapping.API.PEImportMapping.Buisness
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ImportMappingController : ControllerBase
+    public class ImportMapping:IImportMapping
     {
-         public ForgeModel ForgeModelobj;
-
-        [HttpPost]
         public Object ImportFile()
         {
             var myJsonString = System.IO.File.ReadAllText("ZouraPayloads/CreateSubscription.json");
@@ -25,6 +15,5 @@ namespace PEImportMapping.API.Controllers
             return myJObject;
 
         }
-
     }
 }
