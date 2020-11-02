@@ -13,12 +13,12 @@ namespace PEImportMapping.API.Models
         public string LegalName  { get; set; }
         public string AccountName  { get; set; }
 
-        public string EntentitlementCatelog { get; set; }
+        public string EntitlementCatalog { get; set; }
          public string TenantRecipe { get; set; }
     }
 
 
-    public class zourapayloadModel
+    public class ZouraPayloadModel
     {
 
         public string Header_Event_Type { get; set; }

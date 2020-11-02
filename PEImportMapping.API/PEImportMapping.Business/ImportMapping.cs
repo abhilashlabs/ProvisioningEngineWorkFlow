@@ -13,7 +13,7 @@ namespace PEImportMapping.API.PEImportMapping.Buisness
 
      
 
-        public Object PEImportMapping(zourapayloadModel data)
+        public Object PEImportMapping(ZouraPayloadModel data)
         {
             
             ForgeModelobj = new ImportMappingModel()
@@ -22,7 +22,7 @@ namespace PEImportMapping.API.PEImportMapping.Buisness
                 UltimateParentAccountName = data.Ultimate_Parent_Account_Name,
                 LegalName = data.Legal_Name,
                 AccountName = data.Account_Name,
-                EntentitlementCatelog = "EntentitlementCatelog",
+                EntitlementCatalog = "EntitlementCatalog",
                 TenantRecipe = "TenantRecipe"
             };
 

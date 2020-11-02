@@ -8,6 +8,6 @@ namespace PEImportMapping.API.PEImportMapping.Buisness
 {
     interface IImportMapping
     {
-        object PEImportMapping(zourapayloadModel data);
+        object PEImportMapping(ZouraPayloadModel data);
     }
 }

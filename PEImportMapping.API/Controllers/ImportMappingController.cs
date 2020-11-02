@@ -17,17 +17,17 @@ namespace PEImportMapping.API.Controllers
     public partial class ImportMappingController : ControllerBase
     {
      
-        private readonly ImportMapping _importmapping;
+        private readonly ImportMapping _importMapping;
         private readonly String apiBaseUrl = "https://localhost:44348/api/PECore/";
-        public ImportMappingController(ImportMapping importmapping)
+        public ImportMappingController(ImportMapping importMapping)
         {
-            _importmapping = importmapping;
+            _importMapping = importMapping;
         }
 
         [HttpPost]
-        public   Object Post([FromBody] zourapayloadModel data)
+        public   Object Post([FromBody] ZouraPayloadModel data)
         {
-            var payload = _importmapping.PEImportMapping( data);
+            var payload = _importMapping.PEImportMapping( data);
            
             //using (HttpClient client = new HttpClient())
             //{
