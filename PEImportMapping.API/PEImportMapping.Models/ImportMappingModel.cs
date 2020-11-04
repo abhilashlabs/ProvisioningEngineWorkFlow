@@ -28,7 +28,7 @@ namespace PEImportMapping.API.Models
         public string Legal_Name { get; set; }
         public string Account_Name { get; set; }
 
-        public Subscription subscription { get; set; }
+        public Subscription[] subscription { get; set; }
 
     }
 

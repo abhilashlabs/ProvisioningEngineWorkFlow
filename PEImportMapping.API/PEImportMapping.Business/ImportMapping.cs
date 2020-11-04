@@ -22,8 +22,8 @@ namespace PEImportMapping.API.PEImportMapping.Buisness
                 UltimateParentAccountName = data.Ultimate_Parent_Account_Name,
                 LegalName = data.Legal_Name,
                 AccountName = data.Account_Name,
-                subscriptionNumber = data.subscription.subscriptionNumber,
-                subscriptionAccountNumber = data.subscription.Subscription_Account_Number,
+                subscriptionNumber = data.subscription[0].subscriptionNumber,
+                subscriptionAccountNumber = data.subscription[0].Subscription_Account_Number,
                 EntitlementCatalog = "EntitlementCatalog",
                 TenantRecipe = "TenantRecipe"
             };
