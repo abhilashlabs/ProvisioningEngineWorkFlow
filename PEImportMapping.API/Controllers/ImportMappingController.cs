@@ -44,6 +44,10 @@ namespace PEImportMapping.API.Controllers
         public   IActionResult Post([FromBody] ZouraPayloadModel data)
         {
             logger.Information("-------------------");
+            logger.Information("Zuora Payload -->");
+            logger.Information("-------------------");
+            logger.Information(JsonConvert.SerializeObject(data).ToString());
+            logger.Information("-------------------");
             logger.Information("Import Mapping Api is Logged");
             logger.Information("Converted Zuora Payload to Forge understandable format");
             logger.Information("Appended Entitlement catalog to Zuora payload");
@@ -63,7 +67,10 @@ namespace PEImportMapping.API.Controllers
                     //    payload = Response;
 
                     //}
-
+                    logger.Information("Mapped Payload -->");
+                    logger.Information("-------------------");
+                    logger.Information(JsonConvert.SerializeObject(payload).ToString());
+                    logger.Information("-------------------");
                     var response = client.PostAsync(endpoint, content);
                     response.Wait();
                     if (response.IsCompleted)

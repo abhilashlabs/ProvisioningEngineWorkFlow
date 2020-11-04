@@ -24,6 +24,10 @@ namespace PEImportMapping.API.PEImportMapping.Buisness
                 AccountName = data.Account_Name,
                 subscriptionNumber = data.subscription[0].subscriptionNumber,
                 subscriptionAccountNumber = data.subscription[0].Subscription_Account_Number,
+                version = data.subscription[0].version,
+                contractEffectiveDate = data.subscription[0].Contract_Effective_Date,
+                status = data.subscription[0].status,
+                rateplanId= data.subscription[0].rateplans.id,
                 EntitlementCatalog = "EntitlementCatalog",
                 TenantRecipe = "TenantRecipe"
             };

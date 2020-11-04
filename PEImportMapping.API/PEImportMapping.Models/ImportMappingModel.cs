@@ -17,6 +17,10 @@ namespace PEImportMapping.API.Models
 
         public string subscriptionNumber { get; set; }
         public string subscriptionAccountNumber { get; set; }
+        public int version { get; set; }
+        public string contractEffectiveDate { get; set; }
+        public string status { get; set; }
+        public string rateplanId { get; set; }
     }
 
 
@@ -36,7 +40,7 @@ namespace PEImportMapping.API.Models
     {
         public string Subscription_Account_Number { get; set; }
         public string subscriptionNumber { get; set; }
-        public string version { get; set; }
+        public int version { get; set; }
         public string Contract_Effective_Date { get; set; }
         public string status { get; set; }
 
@@ -45,6 +49,6 @@ namespace PEImportMapping.API.Models
 
     public class RatePlans
     {
-        public int id { get; set; }
+        public string id { get; set; }
     }
 }

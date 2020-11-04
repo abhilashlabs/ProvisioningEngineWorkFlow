@@ -26,8 +26,12 @@ namespace PECore.API.Controllers
         public IActionResult Post([FromBody] Object data)
         {
             logger.Information("Provisioning Engine Core Api is called");
+            logger.Information("Mapped Payload -->");
+            logger.Information("-------------------");
             logger.Information(data.ToString());
-           
+            logger.Information("-------------------");
+            logger.Information("Provisioning is successful");
+
             using (HttpClient client = new HttpClient())
             {
                 logger.Information("Calling Provisioning Engine Export Mapping with the mapped data");
