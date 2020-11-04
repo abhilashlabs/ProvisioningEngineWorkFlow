@@ -15,13 +15,15 @@ namespace PEImportMapping.API.PEImportMapping.Buisness
 
         public Object PEImportMapping(ZouraPayloadModel data)
         {
-            
+
             ForgeModelobj = new ImportMappingModel()
             {
-                HeaderEventType = data.Header_Event_Type ,
+                HeaderEventType = data.Header_Event_Type,
                 UltimateParentAccountName = data.Ultimate_Parent_Account_Name,
                 LegalName = data.Legal_Name,
                 AccountName = data.Account_Name,
+                subscriptionNumber = data.subscription.subscriptionNumber,
+                subscriptionAccountNumber = data.subscription.Subscription_Account_Number,
                 EntitlementCatalog = "EntitlementCatalog",
                 TenantRecipe = "TenantRecipe"
             };
