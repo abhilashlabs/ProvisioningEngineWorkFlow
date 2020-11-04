@@ -12,9 +12,11 @@ namespace PEImportMapping.API.Models
         public string UltimateParentAccountName  { get; set; }
         public string LegalName  { get; set; }
         public string AccountName  { get; set; }
-
         public string EntitlementCatalog { get; set; }
          public string TenantRecipe { get; set; }
+
+        public string subscriptionNumber { get; set; }
+        public string subscriptionAccountNumber { get; set; }
     }
 
 
@@ -26,5 +28,23 @@ namespace PEImportMapping.API.Models
         public string Legal_Name { get; set; }
         public string Account_Name { get; set; }
 
+        public Subscription subscription { get; set; }
+
+    }
+
+    public class Subscription
+    {
+        public string Subscription_Account_Number { get; set; }
+        public string subscriptionNumber { get; set; }
+        public string version { get; set; }
+        public string Contract_Effective_Date { get; set; }
+        public string status { get; set; }
+
+        public RatePlans rateplans { get; set; }
+    }
+
+    public class RatePlans
+    {
+        public int id { get; set; }
     }
 }

@@ -12,6 +12,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using PEImportMapping.API.PEImportMapping.Buisness;
+using System.IO;
+using NLog;
+using PEImportMapping.API.PEImportMapping.Business;
+using Microsoft.OpenApi.Models;
 
 namespace PEImportMapping.API
 {
@@ -19,6 +23,7 @@ namespace PEImportMapping.API
     {
         public Startup(IConfiguration configuration)
         {
+            LogManager.LoadConfiguration(System.String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
         }
 
@@ -38,6 +43,18 @@ namespace PEImportMapping.API
             });
             services.AddControllers();
             services.AddSingleton<ImportMapping>();
+            services.AddSingleton<ILog, LogNLog>();
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Forge Provisioning Engine Import Mapping Api's",
+                    Description = "Api's used",
+
+                });
+            });
 
         }
 
@@ -51,6 +68,18 @@ namespace PEImportMapping.API
 
             app.UseHttpsRedirection();
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger(c =>
+            {
+                c.SerializeAsV2 = true;
+            });
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "POC Api V1");
+                //c.RoutePrefix = string.Empty;
+            });
             app.UseRouting();
 
             app.UseAuthorization();
